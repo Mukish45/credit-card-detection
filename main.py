@@ -25,9 +25,12 @@ def main():
     st.write('Enter data for prediction:')
     input_data = {}
 
-    features = ['Merchant name (Rajesh)', 'Category (entertainment, gas_transport)', 'Amount (in US dollor)', 'Gender (M, F)', 'Latitude (Eg 44.2378)', 'Longitude (Eg -95.2739)', 'City Population (Eg 1507)', 'Job (Eg Teacher)', 'Unix Time (Eg 1384969991)', 'Merchant latitude', 'Merchant longitude']
-    for feature in features:
-        input_data[feature] = st.text_input(feature)
+    features_to_display = ['Merchant name (Rajesh)', 'Category (entertainment, gas_transport)', 'Amount (in US dollor)', 'Gender (M, F)', 'Latitude (Eg 44.2378)', 'Longitude (Eg -95.2739)', 'City Population (Eg 1507)', 'Job (Eg Teacher)', 'Unix Time (Eg 1384969991)', 'Merchant latitude', 'Merchant longitude']
+    
+    features = ['merchant', 'category', 'amt', 'gender', 'lat', 'long', 'city_pop', 'job', 'unix_time', 'merch_lat', 'merch_long']
+
+    for i in range(len(features)):
+        input_data[features[i]] = st.text_input(features_to_display[i])
 
     if st.button('Predict'):
         input_df = pd.DataFrame([input_data])
